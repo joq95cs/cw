@@ -1,0 +1,343 @@
+SELECT * FROM city;
+
+SELECT Name, CountryCode FROM city;
+
+SELECT DISTINCT CountryCode FROM city;
+
+SELECT COUNT(DISTINCT CountryCode) FROM city;
+
+SELECT * FROM city WHERE Name = 'Uruapan';
+
+SELECT * FROM city WHERE Population > 1500000;
+
+SELECT * FROM city WHERE Population < 50000;
+
+SELECT * FROM city WHERE Population >= 8000000;
+
+SELECT * FROM city WHERE Population <= 25000;
+
+SELECT * FROM city WHERE Population != 5000000;
+
+SELECT * FROM city WHERE Population BETWEEN 100000 AND 150000;
+
+SELECT * FROM city WHERE Name LIKE 'Uru%';
+
+SELECT * FROM city WHERE Name LIKE '%on';
+
+SELECT * FROM city WHERE Name LIKE '% del %';
+
+SELECT * FROM city WHERE CountryCode = 'MEX' AND Name = 'Uruapan';
+
+SELECT * FROM city WHERE CountryCode = 'BEL' OR Name = 'Uruapan';
+
+SELECT * FROM city WHERE CountryCode = 'BEL' OR CountryCode = 'MEX' OR CountryCode = 'IDN' OR Name = 'Bahia';
+
+SELECT * FROM city WHERE CountryCode = 'BEL' AND Name LIKE '%gge' OR NAME = 'Uruapan';
+
+SELECT NAME, Population FROM city WHERE Name = 'Guadalajara' OR Population BETWEEN 20000 AND 25000;
+
+SELECT NAME, Population, ID FROM city WHERE ID BETWEEN 10 AND 55 AND Name LIKE 'A%' AND Population >= 100000;
+
+SELECT * FROM city WHERE NOT ID > 25;
+
+SELECT * FROM city WHERE CountryCode = 'MEX' AND (NAME = 'Uruapan' OR Population >= 500000);
+
+SELECT * FROM city WHERE NOT Population >= 10000 AND NOT Name LIKE 'a%';
+
+SELECT * FROM city ORDER BY Population ASC;
+
+SELECT * FROM city ORDER BY Population DESC;
+
+INSERT INTO city VALUES (NULL, 'SimCity', 'USA', 'SimNation', 5000000);
+
+INSERT INTO city (Name, CountryCode, District, Population) VALUES ('MiCiudad', 'MEX', 'MiDistrito', 200000);
+
+SELECT * FROM city WHERE Population IS NULL;
+
+SELECT ID, Name FROM city WHERE NAME IS NOT NULL AND Population < 50000;
+
+UPDATE city SET Name = 'Uruapan Del Progreso' WHERE NAME = 'Uruapan';
+
+SELECT * FROM city WHERE NAME = 'Uruapan Del Progreso';
+
+UPDATE city SET Name = 'Uruapani', district = 'Michoacán' WHERE ID = 2574;
+
+UPDATE city SET NAME = 'Uruapan', District = 'Michoacán de Ocampo' WHERE ID = 2574;
+
+UPDATE city SET District = 'Michoacán' WHERE District = 'Michoacán de Ocampo';
+
+DELETE FROM city WHERE District = 'MiDistrito';
+
+DELETE FROM city WHERE District = 'A borrar';
+
+DELETE FROM city; (Borra todos los registros);
+
+SELECT * FROM city LIMIT 15;
+
+SELECT * FROM city WHERE Population BETWEEN 5000 AND 5000000 AND Name LIKE 'b%' AND Name LIKE '%o'LIMIT 9;
+
+SELECT ID, NAME, MIN(Population) FROM city WHERE Population BETWEEN 10000 AND 15000;
+
+SELECT MIN(Population) FROM city;
+
+SELECT MAX(Population) FROM city;
+
+SELECT MIN(CountryCode) FROM city;
+
+SELECT MAX(CountryCode) FROM city;
+
+SELECT MAX(CountryCode) AS PaisHastaAbajo FROM city;
+
+SELECT MIN(Population) AS MenorPoblacion FROM city;
+
+SELECT COUNT(Name) FROM city;
+
+SELECT COUNT(District) AS CiudadesDeJalisco FROM city WHERE District = 'Jalisco';
+
+SELECT COUNT(NAME) AS MiCiudad FROM city WHERE NAME = 'Uruapan';
+
+SELECT AVG(Population) AS PromedioPoblacion FROM city;
+
+SELECT AVG(Population) AS PromedioMexico FROM city WHERE CountryCode = 'MEX';
+
+SELECT SUM(Population) AS Suma FROM city WHERE CountryCode = 'MEX';
+
+SELECT SUM(Population) AS MiSuma FROM city WHERE NAME = 'El Fuerte' OR NAME = 'Tierra Blanca';
+
+SELECT * FROM city WHERE Name LIKE 'B______';
+
+SELECT * FROM city WHERE Name LIKE '__B__';
+
+SELECT * FROM city WHERE Name LIKE '%U';
+
+SELECT * FROM city WHERE Name LIKE 'U%N';
+
+SELECT * FROM city WHERE Name LIKE 'U_U___N';
+
+SELECT * FROM city WHERE NAME IN ('Uruapan', 'Morelia');
+
+SELECT * FROM city WHERE NAME IN (SELECT name FROM city WHERE District = 'Michoacán' AND Population >= 250000);
+
+SELECT * FROM city WHERE NAME NOT IN (SELECT NAME FROM city WHERE Population >= 600) ORDER BY Population ASC;
+
+SELECT * FROM city WHERE Population BETWEEN 200000 AND 5000000 AND CountryCode IN ('MEX', 'USA');
+
+SELECT * FROM city WHERE Population BETWEEN 100 AND 5000000 AND CountryCode NOT IN ('MEX', 'USA', 'JPN');
+
+SELECT * FROM city WHERE CountryCode IN (SELECT CountryCode FROM city WHERE Population BETWEEN 100 AND 5000000 AND CountryCode NOT IN ('MEX', 'USA', 'JPN')) AND CountryCode IN ('MEX', 'USA', 'JPN');
+
+SELECT * FROM city WHERE Population NOT BETWEEN 10000 AND 5000000;
+
+SELECT * FROM city WHERE NAME BETWEEN 'Delhi' AND 'Jakarta' ORDER BY NAME DESC;
+
+SELECT NAME AS 'Nombrecito', CountryCode AS 'Paisito' FROM city LIMIT 150;
+
+SELECT * FROM city AS miTabla WHERE NAME LIKE 'a%';
+
+SELECT NAME AS Nombre, CountryCode AS CódigoPaís FROM city LIMIT 150;
+
+SELECT ID, CONCAT(NAME, ', está en ', District) AS Ciudad FROM city WHERE NAME = 'Uruapan';
+
+SELECT pais.Name, pais.Continent, ciudad.Name, ciudad.Population FROM country AS pais, city AS ciudad LIMIT 100;
+
+SELECT pais.Name AS "Nombre del país", pais.Continent AS "Continente del país", ciudad.Name AS "Nombre de la ciudad", ciudad.Population AS "Población de la ciudad" FROM country AS pais, city AS ciudad LIMIT 100;
+
+SELECT pais.Name AS "Nombre del país", pais.Continent AS "Continente del país", ciudad.Name AS "Nombre de la ciudad", ciudad.Population AS "Población de la ciudad" FROM country AS pais, city AS ciudad WHERE ciudad.Name = 'Uruapan' AND pais.Code = 'MEX';
+
+SELECT country.Name, city.Name FROM country, city WHERE country.Name = 'Australia' AND city.Name = 'Uruapan';
+
+SELECT * FROM city, country WHERE city.ID = 200;
+
+SELECT country.Code, country.Name, city.Name, city.CountryCode FROM country INNER JOIN city ON country.Code = city.CountryCode ORDER BY country.Name ASC;
+
+SELECT * FROM city INNER JOIN country ON city.CountryCode = country.Code;
+
+SELECT city.Name, city.CountryCode, country.Name, country.Code, countrylanguage.Language, countrylanguage.CountryCode FROM ((city INNER JOIN country ON city.CountryCode = country.Code) INNER JOIN countrylanguage ON city.CountryCode = countrylanguage.CountryCode);
+
+SELECT city.Name, city.CountryCode, country.Name, country.Code FROM city LEFT JOIN country on city.CountryCode = country.Code;
+
+SELECT city.Name, city.CountryCode, country.Name, country.Code FROM city RIGHT JOIN country on city.CountryCode = country.Code;
+
+SELECT T1.ID AS ID_1, T1.Name AS Nombre_1, T2.ID AS ID_2, T2.Name AS Nombre_2 FROM city T1, city T2 WHERE T1.Name = 'Uruapan' OR T1.Name = 'Morelia';
+
+SELECT ID, NAME FROM city WHERE NAME = 'Uruapan' UNION SELECT CODE, NAME FROM country WHERE CODE = 'Mex';
+
+SELECT * FROM city WHERE id = 2574 UNION SELECT * FROM city WHERE id = 4012;
+
+SELECT * FROM city WHERE Name = 'Uruapan' UNION SELECT * FROM city WHERE ID BETWEEN 1 AND 9 UNION SELECT * FROM city WHERE ID BETWEEN 2334 AND 2350 UNION SELECT * FROM CITY WHERE ID BETWEEN 4000 AND 4020;
+
+SELECT * FROM city WHERE ID BETWEEN 1 AND 10 UNION ALL SELECT * FROM city WHERE ID BETWEEN 1 AND 10;
+
+SELECT COUNT(ID) AS Cantidad, CountryCode FROM city GROUP BY CountryCode ORDER BY Cantidad ASC;
+
+SELECT COUNT(ID), CountryCode FROM city WHERE CountryCode = 'MEX' GROUP BY CountryCode;
+
+SELECT COUNT(ID) AS Cantidad_de_ciudades, CountryCode AS Pais FROM city GROUP BY CountryCode ORDER BY Pais;
+
+SELECT COUNT(Name), CountryCode FROM city GROUP BY CountryCode ORDER BY COUNT(Name);
+
+SELECT country.Name AS "Nombre del país", COUNT(country.Name) AS "Cantidad de ciudades" FROM city LEFT JOIN country ON city.CountryCode = country.Code GROUP BY country.Name ORDER BY COUNT(country.Name) DESC;
+
+SELECT * FROM city GROUP BY CountryCode HAVING COUNT(ID) = 173;
+
+SELECT COUNT(CountryCode), CountryCode FROM city GROUP BY CountryCode HAVING COUNT(CountryCode) = 173;
+
+SELECT COUNT(CountryCode), CountryCode FROM city GROUP BY CountryCode HAVING COUNT(CountryCode) >= 100 ORDER BY COUNT(CountryCode) ASC;
+
+SELECT * FROM city WHERE EXISTS (SELECT CODE FROM country WHERE CODE = 'skkssk');
+
+SELECT * FROM city WHERE EXISTS (SELECT * FROM city WHERE NAME = 'Tingambato') AND CountryCode = 'MEX';
+
+SELECT * FROM city WHERE NOT EXISTS (SELECT * FROM city WHERE NAME = 'Tingambato') AND CountryCode = 'MEX';
+
+CREATE TABLE backup SELECT * FROM city WHERE ID <= 100;
+
+CREATE TABLE prueba SELECT ID, NAME AS 'Nombre', District AS 'Distrito' FROM city WHERE CountryCode = 'MEX';
+
+INSERT INTO prueba SELECT ID, NAME, District FROM city WHERE ID BETWEEN 500 AND 580;
+
+SELECT *, CASE WHEN Population > 10000 THEN 'La población es mayor que 10000' WHEN Population = 10000 THEN 'La población es 10000' ELSE 'La población es menor a 10000' END AS Texto FROM city;
+
+SELECT * FROM city ORDER BY (CASE WHEN Population > 40 THEN CountryCode ELSE NAME END);
+
+SELECT SUM(IFNULL(Population, 1)) FROM city;
+
+SELECT SUM(IFNULL(Edad, 0)) AS suma_con_null FROM probar_null;
+
+SELECT SUM(COALESCE(Edad, 10)) AS suma_con_null FROM probar_null;
+
+CREATE PROCEDURE CiudadesMex() SELECT * FROM city WHERE CountryCode = 'MEX';
+
+CALL CiudadesMex();
+
+DROP CiudadesMex();
+
+SELECT NAME, Population + 25 FROM city;
+
+SELECT NAME, Population * 0 FROM city;
+
+SELECT NAME, Population - 1000 FROM city;
+
+SELECT NAME, Population / 100 FROM city;
+
+SELECT 'Hola a todos' AS COL1;
+
+SELECT 'Hola a todos' AS COL1, 256 AS COL2, 78*2 AS COL3;
+
+CREATE DATABASE mi_base;
+
+DROP DATABASE mi_base;
+
+CREATE TABLE copia_personas SELECT id_persona, nombre, edad FROM personas;
+
+CREATE TABLE copia_alumnos SELECT * FROM alumnos;
+
+CREATE TABLE copia_alumnos SELECT id_alumno AS id_copia, nombre AS nombre_copia, edad AS edad_copia FROM alumnos;
+
+TRUNCATE TABLE country_copia;
+
+DROP TABLE country_copia;
+
+ALTER TABLE alumnos ADD COLUMN ciudad VARCHAR
+
+ALTER TABLE alumnos ADD COLUMN (otro INT, mas INT);
+
+ALTER TABLE alumnos DROP COLUMN mas;
+
+ALTER TABLE alumnos MODIFY COLUMN sexo INT;
+
+CREATE TABLE personas (id INT PRIMARY KEY, nombre VARCHAR(255) NOT NULL);
+
+ALTER TABLE personas ADD COLUMN valor_unico VARCHAR(255) UNIQUE;
+
+ALTER TABLE alumnos MODIFY COLUMN id INT PRIMARY KEY;
+
+ALTER TABLE alumnos MODIFY COLUMN nombre VARCHAR(255) NOT NULL UNIQUE;
+
+ALTER TABLE alumnos MODIFY COLUMN edad INT DEFAULT 0;
+
+CREATE TABLE pelicula (id INT NOT NULL AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, genero VARCHAR(255), PRIMARY KEY(id));
+
+CREATE TABLE peliculas (ID INT PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL);
+
+CREATE TABLE tabla (campo1 INT NOT NULL AUTO_INCREMENT, campo2 INT NOT NULL, campo3 INT NOT NULL, PRIMARY KEY(campo1), UNIQUE (campo2), INDEX (campo3));
+
+CREATE TABLE personas (id INT AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, PRIMARY KEY(id));
+
+CREATE TABLE mi_tabla (campo_1 INT, campo_2 VARCHAR(255), campo_3 DATE, campo_4 DOUBLE, PRIMARY KEY (campo_1));
+
+CREATE TABLE series (id INT, nombre VARCHAR(255), descripcion VARCHAR(1000), CONSTRAINT ALIAS_U UNIQUE (nombre, descripcion));
+
+ALTER TABLE series DROP INDEX ALIAS_U;
+
+ALTER TABLE series ADD CONSTRAINT mic UNIQUE (id, nombre);
+
+ALTER TABLE series ADD UNIQUE (nombre);
+
+ALTER TABLE series DROP INDEX nombre;
+
+CREATE TABLE peliculas (id INT, nombre VARCHAR(50), genero VARCHAR(50), agno year, PRIMARY KEY(id));
+
+CREATE TABLE peliculas (id INT PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR(50), genero VARCHAR(50), agno year);
+
+CREATE TABLE peliculas (id INT AUTO_INCREMENT, nombre VARCHAR(50), genero VARCHAR(50), agno year, PRIMARY KEY(id));
+
+CREATE TABLE personas (curp VARCHAR(50), rfc VARCHAR(50), nombre VARCHAR(100), CONSTRAINT pk PRIMARY KEY (curp, rfc));
+
+ALTER TABLE peliculas ADD PRIMARY KEY(id);
+
+ALTER TABLE peliculas ADD CONSTRAINT pk_peliculas PRIMARY KEY (id, agno);
+
+ALTER TABLE peliculas DROP PRIMARY KEY;
+
+CREATE TABLE personas (id INT, nombre VARCHAR(50), ciudad INT, PRIMARY KEY(id), FOREIGN KEY(ciudad) REFERENCES city(ID));
+
+CREATE TABLE alumnos (id INT, persona INT, nombre VARCHAR(100), Primary KEY(id), CONSTRAINT fk_alumnos FOREIGN KEY (persona) REFERENCES personas(id));
+
+ALTER TABLE alumnos ADD FOREIGN KEY (persona) REFERENCES personas(id);
+
+CREATE TABLE alumnos(id INT, nombre VARCHAR(100), ciudad INT, PRIMARY KEY(id), CONSTRAINT fk FOREIGN KEY (ciudad) REFERENCES city (ID));
+
+ALTER TABLE alumnos DROP CONSTRAINT fk;
+
+CREATE TABLE adultos (id INT, nombre VARCHAR(100), edad INT, PRIMARY KEY(id), CHECK (edad >= 18));
+
+CREATE TABLE personas (id INT PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR(100) NOT NULL, edad INT NOT NULL, a_nac INT NOT NULL, CONSTRAINT chk CHECK (edad >= 13 AND a_nac >= 1970));
+
+CREATE TABLE personas (id INT PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR(100) NOT NULL, edad INT NOT NULL, a_nac INT NOT NULL, CONSTRAINT chk CHECK (nombre LIKE "a%" AND edad >= 13 AND a_nac >= 1970));
+
+ALTER TABLE personas DROP CONSTRAINT chk;
+
+ALTER TABLE personas ADD CHECK (edad >= 18);
+
+CREATE TABLE personas (id INT PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR(100) NOT NULL, apellido VARCHAR(100) NOT NULL, edad INT NOT NULL, ciudad VARCHAR(100) NOT NULL DEFAULT "Uruapan");
+
+ALTER TABLE personas ADD COLUMN fecha DATE DEFAULT NOW();
+
+ALTER TABLE personas MODIFY COLUMN fecha DATE NOT NULL DEFAULT NOW();
+
+ALTER TABLE personas ALTER apellido SET DEFAULT "De Castilla";
+
+ALTER TABLE personas ALTER ciudad DROP DEFAULT;
+
+CREATE INDEX index_director ON peliculas (director); 
+
+CREATE UNIQUE INDEX index_nombre ON peliculas (nombre);
+
+DROP INDEX index_nombre ON peliculas;
+
+ALTER TABLE peliculas AUTO_INCREMENT = 5000;
+
+CREATE TABLE fechas (id INT AUTO_INCREMENT, fecha1 DATE, fecha2 DATETIME, fecha3 TIMESTAMP, agno YEAR, PRIMARY KEY (id));
+
+INSERT INTO fechas (fecha1, fecha2, agno) VALUES ("1995-10-14", "1995-10-14 03:15:00", 2021);
+
+CREATE VIEW vista AS SELECT NAME, Population FROM city WHERE CountryCode = "MEX";
+
+SELECT * FROM vista;
+
+DROP VIEW vista;
+
+ALTER TABLE clientes ADD CONSTRAINT fk_detalles FOREIGN KEY (id) REFERENCES detalles_clientes (id) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE clientes ADD CONSTRAINT fk_detalles FOREIGN KEY (detalles_cliente) REFERENCES detalles_clientes (id) ON DELETE NO ACTION ON UPDATE NO ACTION;

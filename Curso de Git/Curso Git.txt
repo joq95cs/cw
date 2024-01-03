@@ -1,0 +1,47 @@
+git init
+
+git status -s
+
+git add index.html
+
+git commit -m "Descripción del commit"
+
+git config --global user.email "you@example.com"
+
+git config --global user.name "Your Name"
+
+git log --oneline
+
+git reset --hard d2355b2
+
+git add . (A todos los archivos)
+
+git commit -am "Parrafo y tamaño de fuente"
+
+git remote add origin https://github.com/joq95cs/CursoGit.git
+
+git remote -v
+
+git push origin master
+
+git pull origin master
+
+git tag 23-01-21v1 -m "Versión 1 del proyecto"
+
+git push --tags
+
+git branch javascript
+
+git branch
+
+git checkout javascript
+
+git merge javascript
+
+git branch -d programador_2
+
+git remote rm origin
+
+git clone https://github.com/angelcruzalv/elJacal_App.git
+
+git commit --amend -m "Nuevo nombre"

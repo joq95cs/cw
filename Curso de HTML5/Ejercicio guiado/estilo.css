@@ -1,0 +1,98 @@
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote {
+ padding: 0;
+ margin: 0;
+ font-size: 100%;
+ font-weight: normal;
+}
+table { border-collapse: collapse; border-spacing: 0; }
+td, th, caption { font-weight: normal; text-align: left; }
+img, fieldset { border: 0; }
+ol { padding-left: 1.4em; list-style: decimal; }
+ul { padding-left: 1.4em; list-style:square; }
+q:before, q:after { content:''; }
+
+/*FIN DEL RESET CSS*/
+
+body {
+	
+	font-size: 62.5%;
+	
+}
+
+h1 {
+	
+	font: normal 2.4em Verdana, Geneva, sans-serif; /*Propiedad genérica, se indica que el estilo de la letra es normal, el tamaño es de 240% y la fuente alguna de las elegidas*/
+	background: -webkit-linear-gradient(top, #0404B4, #78D2EE);
+	width: 45%;
+	border-radius: 10px;	
+	margin: 15px auto; /*El primer valor corresponde a arriba y abajo, el segundo corresponde a izquierda y derecha*/
+	text-align: center;
+	padding: 15px; /*Establece distancia del contenido al borde del contenedor*/
+	color: white;
+	text-shadow: white 2px 2px 3px; /*Color de sombreado, distancia horizonta, distancia vertical y difuminado*/
+	
+}
+
+h2 {
+	
+	font: bold 1.7em Verdana, Geneva, sans-serif;
+	margin: 0%;
+	padding: 5px 0px 5px 0px; /*Arriba, derecha, abajo, izquierda*/
+	color: black;
+	
+}
+
+section {
+	
+	width: 90%;
+	border-top: 1px dashed gray; /*Ancho del borde, tipo y color*/
+	margin: 15px auto;
+	
+}
+
+figure {
+	
+	float: left; /*El contenido que va a continuación de se coloca al rededor*/
+	
+}
+
+figure img { /*Selector descendiente*/
+
+	padding: 4px;
+	background: gray;
+	border-radius: 20px;
+	-webkit-transition: -webkit-transform 0.3s ease-in-out 0.1s; /*Se indica que todas las transiciones que se apliquen sobre dicha etiqueta tendrán esas características*/
+	/*El efecto tarda 0.3s en ejecutarse por completo y 0.1s en arrancar cuando se pone el cursor sobre la imagen*/
+	box-shadow: #BDBDBD 5px 5px 10px;
+	
+}
+
+figure img:hover {/*Pseudoclase*/
+
+	-webkit-transform: scale(1.2);
+
+}
+
+figcaption {
+	
+	font-family: Arial;
+	font-size: 1.3em;
+	text-align: center;
+	margin-top: 5px;
+	
+}
+
+footer {
+	
+	clear: both; /*Se romple el float*/
+	padding-top: 100px;
+	
+}
+
+footer p {
+	
+	font: 1.6em Georgia;
+	color: gray;
+	margin: 10px 8px; /*Arriba, abajo, izquierda y derecha*/
+	
+}

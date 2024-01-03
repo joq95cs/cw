@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title>Cambiar colores con evento click</title>
+		
+		<style>
+		
+			#botones {
+			
+				text-align: center;
+			
+			}
+			
+			body {
+			
+				background-color: gray;
+			
+			}
+			
+		
+		</style>
+		
+		<script>
+			var pagina;
+			
+			function asigna() {
+			
+				pagina = document.getElementById("pagina")
+			
+				var btRojo, btVerde, btAzul, btRosa;
+				
+				btRojo = document.getElementById("btRojo");
+				btVerde = document.getElementById("btVerde");
+				btAzul = document.getElementById("btAzul")
+				btRosa = document.getElementById("btRosa");
+				
+				btRojo.addEventListener("click", cambiaRojo, false);
+				btVerde.addEventListener("click", cambiaVerde, false);
+				btAzul.addEventListener("click", cambiaAzul, false);
+				btRosa.addEventListener("click", cambiaRosa, false);
+			
+			}
+			
+			function cambiaRojo() {
+			
+				pagina.style.background-color = "red";
+			
+			}
+			
+			window.onload = asigna;
+			
+		</script>
+	
+	</head>
+	
+	<body id="pagina">
+	
+		<div id="botones">
+	
+			<button type="button" id="btRojo">Rojo</button>
+			<button type="button" id="btVerde">Verde</button>
+			<button type="button" id="btAzul">Azúl</button>
+			<button type="button" id="btRosa">Rosa</button>
+		
+		</div>
+	
+	</body>
+
+</html> 

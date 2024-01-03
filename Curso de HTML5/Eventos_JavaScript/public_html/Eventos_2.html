@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        
+        <meta charset="utf-8">
+        <title>Eventos en HTML5</title>
+        
+        <script>
+            
+            alert("Bienvenido");
+            var imagen;
+            
+            function tipoFlor() {
+                
+                alert("Pensamiento");
+                
+            }
+            
+            function maneja() {
+                
+                imagen = document.getElementsByTagName("img")[0];
+                imagen.addEventListener("click", tipoFlor, false); //Puede desencadenar varios eventos
+                imagen.addEventListener("mouseover", crecer, false);
+                imagen.addEventListener("mouseout", decrecer, false);
+                
+                //La función addEventListener es la manera reomendada de añadir eventos
+                
+            }
+            
+            function crecer() {
+                
+                imagen.width = 300;
+                imagen.height = 300;
+                
+            }
+            
+            function decrecer() {
+                
+                imagen.width = 200;
+                imagen.height = 200;
+                
+            }
+            
+            window.onload = maneja;
+            
+        </script>
+        
+    </head>
+    
+    <body>
+        
+        <p><img src="imagenes/1.jpg"></p>
+        
+    </body>
+    
+</html>

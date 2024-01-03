@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Formularios</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <section>
+        
+            <form name="mi_formulario" id="mi_formulario" method="get" autocomplete="off">
+
+                Email:&nbsp;<input type="email" name="email" id="email" required multiple> <br><br>
+                
+                Buscar:&nbsp;<input type="search" name="buscar" id="buscar"> <br><br>
+                
+                URL:&nbsp;<input type="url" name="url" id="url" autofocus> <br><br>
+                
+                Edad:&nbsp;<input type="number" name="edad" id="edad" min="1" max="100" step="5" placeholder="5 en 5"> <br><br>
+                
+                <!--Edad:&nbsp;<input type="range" name="edad" id="edad" min="1" max="100">-->
+                
+                Fecha&nbsp;<input type="date" name="fecha" id="fecha"> <br><br>
+                
+                Código postal:&nbsp;<input pattern="[0-9]{5}" name="postal" id="postal" placeholder="5 digitos"> <br><br>
+                <!--En lugar de date puede ser month, week o time-->
+                
+                <input type="submit" value="Enviar">
+                
+
+            </form>
+            
+        </section>
+        
+        Nombre&nbsp;<input type="text" name="nombre" id="nombre" form="mi_formulario">
+        <!--Construye un formulario fuera del formulario-->
+        
+    </body>
+</html>

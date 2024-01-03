@@ -1,0 +1,76 @@
+
+#navegacionPrincipal, #barraLateral, #pieNavega {
+    
+    display: none;
+    
+}
+
+#banner, #contenidoPrincipal, #pie, #principal {
+    
+    width: auto; 
+    margin: 0;
+    padding: 0;
+    
+}
+
+#piePrincipal {
+    
+    margin: 0;
+    
+}
+
+html, body, #banner, #contenidoPie {
+    
+    background: white;
+    
+}
+
+#banner {
+    
+    height: auto;
+    text-align: center;
+    border-bottom: 2pt solid black;
+    border-top: 2pt solid black;
+    padding: 10pt 0;
+    margin-bottom: 15pt;
+        
+}
+
+* {   
+    
+    color: black !important; /*Por si hubiera un conflicto en herencia, cascada o especificidad*/
+    
+}
+
+/*h1 {
+    
+    font-size: 30pt !important;
+    
+}
+
+h2 {
+    
+    font-size: 30pt !important;
+    
+}
+
+p, li {
+    
+    font-size: 11pt !important;
+    
+}*/
+
+#piePrincipal {
+    
+    margin-top: 15pt;
+    border-top: 1pt solid black;
+    padding-top: 5pt;
+    text-align: justify;
+    
+}
+
+a:after {
+    
+    content: " ("attr(href)") "; /*Coloca el valor de href*/
+    
+}

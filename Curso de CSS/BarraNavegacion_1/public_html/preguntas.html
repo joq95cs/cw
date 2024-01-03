@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+    
+<head>
+    
+    <meta charset="windows-1252">    
+    <title>Barra_navegaci&oacute;n</title>
+    
+    <style type="text/css">
+
+        /* reset css */
+        html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote {
+         padding: 0;
+         margin: 0;
+         font-size: 100%;
+         font-weight: normal;
+        }
+        table { border-collapse: collapse; border-spacing: 0; }
+        td, th, caption { font-weight: normal; text-align: left; }
+        img, fieldset { border: 0; }
+        ol { padding-left: 1.4em; list-style: decimal; }
+        ul { padding-left: 1.4em; list-style:square; }
+        q:before, q:after { content:''; }
+        /* final reset */
+        
+        body {
+            
+            font: 62.5% Verdana, Arial, Helvetica, sans-serif;
+            padding: 20px;
+            
+        }
+        
+        #barra {
+            
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            width: 185px;
+            border-bottom: 1px dashed #999;
+            
+        }
+        
+        #barra a {
+            
+            color: black;
+            font-size: 11px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 1px dashed #999;
+            padding: 7px 5px;
+            display: block;
+            background-color: #e7e7e7;
+            background-image: url(images/fondolink.png);
+            background-repeat: no-repeat;
+            padding: 7px 5px 7px 30px;
+            border-bottom: none;
+            
+        }
+        
+        #barra a:hover {
+            
+            font-weight: bold;
+            background-color: #07f5f7;
+            background-position: 3px 50%; /*Sliding doors*/
+            
+        }
+        
+        #inicio #link_inicio,
+        #caracteristicas #link_caracteristicas,
+        #expertos #link_expertos,
+        #preguntas #link_preguntas,
+        #proyectos #link_proyectos,
+        #foros #link_foros { /*Selector de grupo*/
+            
+            background-color: white;
+            background-position: 97% 100%;
+            font-weight: bold;
+            
+        }
+
+    </style>
+    
+    </head>
+    
+    <body id="preguntas">
+        
+        <ul id="barra">
+            
+            <li><a href="index.html" id="link_inicio">Inicio</a></li>
+            <li><a href="caracteristicas.html" id="link_caracteristicas">Caracter&iacute;sticas</a></li>
+            <li><a href="expertos.html" id="link_expertos">Expertos</a></li>
+            <li><a href="preguntas.html" id="link_preguntas">Preguntas</a></li>
+            <li><a href="proyectos.html" id="link_proyectos">Proyectos</a></li>
+            <li><a href="foros.html" id="link_foros">Foro</a></li>
+          
+        </ul>
+        
+    </body>
+    
+</html>

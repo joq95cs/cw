@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Formularios 2</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <section>
+            
+            <form name="registro" method="get"> <!--get es para ver los datos en la url-->
+                
+                <datalist id="informacion">
+                    
+                    <option value="4521696811" label="Teléfono 1">
+                    <option value="4521000781" label="Teléfono 1">
+                    <option value="4524319130" label="Teléfono 1">
+                    
+                </datalist>
+                
+                Teléfono:&nbsp;<input type="tel" name="telefono" id="telefono" list="informacion"> <!--list le indica que va a construir el formulario de una lista-->
+                
+            </form>
+            
+        </section>
+        
+    </body>
+</html>

@@ -1,0 +1,41 @@
+body {
+    
+    background-color: aquamarine;
+    
+}
+
+#principal {
+    
+    font-family: "Comic Sans MS";
+    color: white;
+    
+}
+
+#color {
+    
+    background-color: black;
+    width: 30%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    border: 2px solid yellow;
+    
+}
+
+#botones {
+    
+    background-color: tomato;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    border: 2px solid white;
+
+}
+
+#texto {
+    
+    float: right;
+    
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Formularios 4</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <style>
+            
+            table {
+                
+                text-align: center;
+                background-color: #F36;
+                width: 25%;
+                margin: auto;
+                border: 2px #F30 dashed;
+                
+            }
+            
+            td {
+                
+                padding: 15px;
+                
+            }
+            
+        </style>
+        
+        <script>
+            
+            var edad;
+            
+            function comenzar() {
+                
+                edad = document.getElementById("edad");
+                edad.addEventListener("change", cambia_rango, false); //Cada vez que cambie el elemento
+                
+                document.datos_usuario.addEventListener("invalid", validar, true); //Colocamos el formulario a la escucha bajo el evento invalid
+                //Se le da prioridad al evento invalid
+                
+                document.getElementById("enviar").addEventListener("click", enviar, false);
+                
+                document.datos_usuario.addEventListener("input", validar_tiempo_real, false);
+                
+            }
+            
+            function cambia_rango() {
+                
+                var salida = document.getElementById("rango");
+                
+                var calculo = edad.value - 30;
+                
+                if(calculo < 30) {
+                    
+                    calculo = 0;
+                    edad.value = 30;
+                    
+                }
+                
+                salida.innerHTML = calculo + " a " + edad.value;
+                
+            }
+            
+            function validar(e) {
+                
+                var elemento = e.target; /*El elemento que ha ocasionado el error*/
+                elemento.style.background = "#ffdddd";
+                
+            }
+            
+            function enviar() {
+                
+                var cuadro_usuario = document.getElementById("usuario");
+                
+                var correcto = document.datos_usuario.checkValidity(); /*Comprueba si la validación es correcta*/
+                
+                if(correcto === true) {
+                    
+                    document.datos_usuario.submit();
+                    
+                } else if(cuadro_usuario.validity.valueMissing === true || cuadro_usuario.validity.patternMismatch) {
+                    
+                    alert("El usuario no puede estar vacío y debe tener 3 letras");
+                    
+                }
+                
+            }
+            
+            function validar_tiempo_real(e) {
+                
+                var elemento = e.target;
+                
+                if(elemento.validity.valid === true) {
+                    
+                    elemento.style.background = "#ffff"
+                    
+                } else {
+                    
+                    elemento.style.background = "#ffdddd"
+                    
+                }
+                
+            }
+
+            window.addEventListener("load", comenzar, false);
+            
+        </script>
+        
+    </head>
+    <body>
+        
+        <section>
+            
+            <form name="datos_usuario" method="get">
+                
+                <table>
+                    
+                    <tr>
+                        
+                        <td> Usuario: </td>
+                        <td> <input pattern="[A-Za-z]{3}" name="usuario" id="usuario" maxlength="10" required> </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        
+                        <td> Email: </td>
+                        <td> <input type="email" name="email" id="email" required> </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        
+                        <td> Edad: </td>
+                        <td> <input type="range" name="edad" id="edad" min="0" max="120" value="30" step="30"> </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        
+                        <td> <output id="rango"> 0 a 30</output></td> <!--Texto que se puede cambiar dinámicamente-->
+                        
+                    </tr>
+                    
+                    <tr>
+                        
+                        <td> <input type="submit" id="enviar" value="Registrar"> </td>
+                        
+                    </tr>
+                    
+                </table>
+                
+            </form>
+            
+        </section>
+        
+    </body>
+</html>

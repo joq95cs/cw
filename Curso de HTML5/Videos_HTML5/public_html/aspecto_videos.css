@@ -1,0 +1,46 @@
+#sec {
+    
+    width: 720px;
+    margin: 20px auto; /*Por arriba y por abajo y centrado horizontalmente*/
+    background: violet;
+    padding: 5px; /*Aumenta el tamaño de la sección porque el video tiene ya un tamaño definido*/
+    border: 2px solid tomato;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    /*border-radius es de CSS3*/
+    
+}
+
+nav {
+    
+    margin: 5px 0px; /*Superior e inferior de 5 e izquierda y derecha de 0*/
+    
+}
+
+#bot {
+    
+    float: left;
+    width: 100px;
+    height: 20px;
+    
+}
+
+#bar {
+    
+    background: white;
+    width: 600px;
+    height: 12px;
+    border: 1px solid gray;
+    padding: 3px;
+    margin-left: 70px;
+    
+}
+
+#pro {
+    
+    position: absolute;
+    width: 0px;
+    height: 12px;
+    background: rgba(0, 0, 150, 2);
+    
+}

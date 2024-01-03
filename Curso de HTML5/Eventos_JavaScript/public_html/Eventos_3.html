@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        
+        <meta charset="utf-8">
+        <title>Eventos en HTML5</title>
+        
+        <script>
+            
+            alert("Bienvenido");
+            var imagenes = new Array(3); //Declaración e iniciación de un arreglo de 3 posiciones
+            
+            /*function tipoFlor() {
+                
+                alert("Pensamiento");
+                
+            }*/
+            
+            function manejaFlor() {
+                
+                for(var i=0; i<4; i++) {
+                    
+                    imagenes[i] = document.getElementsByTagName("img")[i];
+                    
+                }
+
+                imagenes[0].addEventListener("mouseover", function(){imagenes[0].width=225; imagenes[0].height=225;}, false); //Puede desencadenar varios eventos
+                imagenes[0].addEventListener("mouseout", function(){imagenes[0].width=200; imagenes[0].height = 200;}, false);
+                imagenes[0].addEventListener("click", function(){alert("Pensamiento")}, false);
+                
+                imagenes[1].addEventListener("mouseover", function(){imagenes[1].width=225; imagenes[1].height=225;}, false); //Puede desencadenar varios eventos
+                imagenes[1].addEventListener("mouseout", function(){imagenes[1].width=200; imagenes[1].height = 200;}, false);
+                imagenes[1].addEventListener("click", function(){alert("Pensamiento")}, false);
+                
+                imagenes[2].addEventListener("mouseover", function(){imagenes[2].width=225; imagenes[2].height=225;}, false); //Puede desencadenar varios eventos
+                imagenes[2].addEventListener("mouseout", function(){imagenes[2].width=200; imagenes[2].height = 200;}, false);
+                imagenes[2].addEventListener("click", function(){alert("Pensamiento")}, false);
+                
+                imagenes[3].addEventListener("mouseover", function(){imagenes[3].width=225; imagenes[3].height=225;}, false); //Puede desencadenar varios eventos
+                imagenes[3].addEventListener("mouseout", function(){imagenes[3].width=200; imagenes[3].height = 200;}, false);
+                imagenes[3].addEventListener("click", function(){alert("Pensamiento")}, false);
+                
+                //Se usan funciones anonimas en lugar de llamarlas
+                
+            }
+            
+            /*function crecer() {
+                
+                imagen.width = 300;
+                imagen.height = 300;
+                
+            }*/
+            
+            /*function decrecer() {
+                
+                imagen.width = 200;
+                imagen.height = 200;
+                
+            }*/
+            
+            window.addEventListener("load", manejaFlor, false);
+            
+        </script>
+        
+    </head>
+    
+    <body>
+        
+        <p><img src="imagenes/1.jpg">&nbsp;&nbsp;<img src="imagenes/2.jpg">&nbsp;&nbsp;<img src="imagenes/3.jpg">&nbsp;&nbsp;<img src="imagenes/4.jpg"></p>
+        
+    </body>
+    
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        
+        <meta charset="utf-8">
+        <title>Eventos en HTML5</title>
+        
+        <script>
+            
+            alert("Bienvenido");
+            
+            function tipoFlor() {
+                
+                alert("Pensamiento");
+                
+            }
+            
+            function daTipoFlor() {
+                
+                document.getElementsByTagName("img")[0].onclick = tipoFlor;
+                
+            }
+            
+            window.onload = daTipoFlor;
+            
+        </script>
+        
+    </head>
+    
+    <body>
+        
+        <!--<p><img src="imagenes/1.jpg" onmouseover="tipoFlor();"></p> <!--Las funciones se llaman como en Java-->
+        <!--Se construye el manejador de evento en línea, es poco recomendado hacer esto-->
+        
+        <p><img src="imagenes/1.jpg"></p>
+        
+    </body>
+    
+</html>

@@ -1,0 +1,45 @@
+#sec {
+    
+    width: 720px;
+    margin: 20px auto;
+    background: aquamarine;
+    padding: 5px;
+    border: 2px solid orange;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    
+}
+
+nav {
+    
+    margin: 5px 0px;
+    
+}
+
+#bot {
+    
+    float: left;
+    width: 100px;
+    height: 20px;
+    
+}
+
+#bar {
+    
+    background: white;
+    width: 600px;
+    height: 12px;
+    border: 1px solid gray;
+    padding: 3px;
+    margin-left: 70px;
+    
+}
+
+#pro {
+    
+    position: absolute;
+    width: 0px;
+    height: 12px;
+    background: rgba(247, 191, 190, 2);
+    
+}

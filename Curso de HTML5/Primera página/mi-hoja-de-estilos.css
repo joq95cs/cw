@@ -1,0 +1,42 @@
+#cabecera_web {
+	
+	background-color: green;
+	
+}
+
+#navegacion_principal {
+	
+	background-color: red;
+	
+}
+
+#barra_lateral {
+	
+	background-color: yellow;
+	float: left;
+	height: 1470px;
+	
+}
+
+#contenido_principal {
+	
+	background-color: purple;
+	margin-left: 205px;
+	padding-left: 15px;
+	padding-top: 20px;
+	
+}
+
+#pie_princial {
+	
+	background-color: gray;
+	clear: both;
+	margin-top: 40px;
+	
+}
+
+li {
+	
+	display: inline;
+	
+}
